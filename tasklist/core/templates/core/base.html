@@ -12,8 +12,8 @@
   <nav class="p-6 flex items-center justify-between bg-gray-800 text-white">
     <a href="/" class="text-xl font-semibold">Tasklist</a>
     <div class="space-x-4">
-      <a href="/about" class="font-semibold">Equipe</a>
-      <a href="/pricing" class="font-semibold">Preços</a>
+      <a href="{% url 'core:about' %}" class="font-semibold">Equipe</a>
+      <a href="{% url 'core:pricing' %}" class="font-semibold">Preços</a>
       
       <a href="/signup" class="p-6 font-semibold bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-xl ml-4">Cadastrar</a>
       <a href="/login" class="p-6 font-semibold bg-gray-500 hover:bg-gray-600 text-white py-2 rounded-xl ml-4">Log in</a>
