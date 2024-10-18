@@ -1,4 +1,3 @@
-from tasklist.accounts.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import User
 

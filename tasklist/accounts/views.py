@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import login as auth_login, authenticate
 
-from tasklist.accounts.forms import SignupForm
+from .forms import SignupForm
 
 def signup(request):
     if request.method == 'POST':
