@@ -1,13 +1,7 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login as auth_login, authenticate
 
-from .models import User
-
-class SignupForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ('username', 'email', 'password1', 'password2')
+from tasklist.accounts.forms import SignupForm
 
 def signup(request):
     if request.method == 'POST':
