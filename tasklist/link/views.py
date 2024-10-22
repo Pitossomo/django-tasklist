@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 
+from .models import Category
 from .forms import CategoryForm, LinkForm
 
 @login_required
@@ -15,6 +16,7 @@ def create_link(request):
 
     else:
         form = LinkForm()
+        form.fields['category'].queryset = Category.objects.filter(created_by=request.user)
 
     return render(request, 'link/create_link.html', {'form': form})
 
