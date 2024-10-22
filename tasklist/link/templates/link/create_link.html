@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Criar Link{% endblock %}
+
+{% block content %}
+    <h1 class="text-xl">Criar Link</h1>
+
+    <form method="post" action=".">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button class="p-4 bg-blue-500 hover:bg-blue-600 text-white rounded-xl">Criar link</button>
+    </form>
+{% endblock %}
