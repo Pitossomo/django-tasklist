@@ -1,8 +1,14 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 
-from .models import Category
+from .models import Category, Link
 from .forms import CategoryForm, LinkForm
+
+@login_required
+def links(request):
+    links = Link.objects.filter(created_by=request.user)
+
+    return render(request, 'link/links.html', {'links': links})
 
 @login_required
 def create_link(request):
