@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Categorias{% endblock %}
+
+{% block content %}
+    <h1 class="text-xl">Categorias</h1>
+    <a href="{% url 'links:create_category' %}" class="inline-block py-4 px-6 my-2 font-semibold bg-blue-500 hover:bg-blue-600 text-white rounded-xl">Nova categoria</a>
+
+    <div class="grid grid-cols-3 gap-3">
+        {% for category in categories %}
+            <div class="bg-gray-100 p-6 rounded-xl">
+                <h2 class="mb-4 text-xl">{{ category.name }}</h2>
+
+                <a href="#" class="text-cyan-700">Ver categoria</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
