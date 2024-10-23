@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h1 class="text-xl mb-6">Dashboard</h1>
+
+    {% if new_links %}
+        <div class="p-6 bg-gray-100 rounded-lg">
+        <h2 class="text-lg font-semibold mb-4">Novos Links</h2>
+        
+        {% for link in new_links %}
+            <div class="flex justify-between items-center mb-2">
+            <p>{{ link.name }}</p>
+            <a href="{{ link.url }}" class="underline hover:text-blue-700" target="_blank">Abrir link</a>
+        </div>
+
+        {% endfor %}
+    </div>
+    {% endif %}
+
+{% endblock %}
