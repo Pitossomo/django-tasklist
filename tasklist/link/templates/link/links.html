@@ -4,6 +4,7 @@
 
 {% block content %}
     <h1 class="text-xl">Links</h1>
+    <a href="{% url 'links:create_link' %}" class="inline-block py-4 px-6 my-2 font-semibold bg-blue-500 hover:bg-blue-600 text-white rounded-xl">Novo link</a>
 
     <div class="grid grid-cols-3 gap-3">
         {% for link in links %}
@@ -18,4 +19,5 @@
             </div>
         {% endfor %}
     </div>
+
 {% endblock %}
