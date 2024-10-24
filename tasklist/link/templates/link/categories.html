@@ -11,8 +11,6 @@
             <div class="bg-gray-100 p-6 rounded-xl">
                 <h2 class="mb-4 text-xl">{{ category.name }}</h2>
 
-                <a href="#" class="text-cyan-700">Ver</a>
-                |
                 <a href="{% url 'links:edit_category' category.id %}" class="text-cyan-700">Editar</a>
                 |
                 <a href="{% url 'links:delete_category' category.id %}" class="text-cyan-700" 
