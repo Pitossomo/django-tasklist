@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 
 from .models import Category, Link
@@ -46,4 +46,24 @@ def create_category(request):
     else:
         form = CategoryForm()
 
-    return render(request, 'link/create_category.html', {'form': form})
+    title = 'Criar categoria'
+    return render(request, 'link/create_category.html', {'form': form, 'title': title})
+
+@login_required
+def edit_category(request, pk):
+    category = get_object_or_404(Category, pk=pk, created_by=request.user)
+
+    if request.method == 'POST':
+        form = CategoryForm(request.POST, instance=category)
+
+        if form.is_valid():
+            category = form.save(commit=False)
+            category.created_by = request.user
+            category.save()
+
+            return redirect('/links/categories/')
+    else:
+        form = CategoryForm(instance=category)
+
+    title = 'Editar categoria'
+    return render(request, 'link/create_category.html', {'form': form, 'title': title})
