@@ -24,7 +24,34 @@ def create_link(request):
         form = LinkForm()
         form.fields['category'].queryset = Category.objects.filter(created_by=request.user)
 
-    return render(request, 'link/create_link.html', {'form': form})
+    title = 'Criar link'
+    return render(request, 'link/create_link.html', {'form': form, 'title': title})
+
+@login_required
+def edit_link(request, pk):
+    link = get_object_or_404(Link, pk=pk, created_by=request.user)
+    
+    if request.method == 'POST':
+        form = LinkForm(request.POST, instance=link)
+
+        if form.is_valid():
+            link.save()
+
+            return redirect('/links/')
+    else:
+        form = LinkForm(instance=link)
+        form.fields['category'].queryset = Category.objects.filter(created_by=request.user)
+
+    title = 'Editar link'
+    return render(request, 'link/create_link.html', {'form': form, 'title': title})
+
+@login_required
+def delete_link(request, pk):
+    link = get_object_or_404(Link, pk=pk, created_by=request.user)
+    link.delete()
+
+    return redirect('/links/')
+
 
 @login_required
 def categories(request):
@@ -57,10 +84,7 @@ def edit_category(request, pk):
         form = CategoryForm(request.POST, instance=category)
 
         if form.is_valid():
-            category = form.save(commit=False)
-            category.created_by = request.user
             category.save()
-
             return redirect('/links/categories/')
     else:
         form = CategoryForm(instance=category)
