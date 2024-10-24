@@ -10,4 +10,5 @@ urlpatterns = [
     path('links/', views.links, name='links'),
     path('categories/', views.categories, name='categories'),
     path('edit-category/<int:pk>/edit/', views.edit_category, name='edit_category'),
+    path('delete-category/<int:pk>/delete/', views.delete_category, name='delete_category'),
 ]
