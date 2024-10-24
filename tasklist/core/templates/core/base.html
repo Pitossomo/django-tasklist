@@ -18,8 +18,7 @@
       {% if request.user.is_authenticated %}
       <a href="{% url 'links:links' %}" class="font-semibold">Links</a>
       <a href="{% url 'dashboard:dashboard' %}" class="font-semibold">Dashboard</a>
-      <a href="{% url 'links:create_link' %}" class="py-4 px-6 font-semibold bg-blue-500 hover:bg-blue-600 text-white rounded-xl ml-4">Novo link</a>
-      <a href="{% url 'links:create_category' %}" class="py-4 px-6 font-semibold bg-blue-500 hover:bg-blue-600 text-white rounded-xl ml-4">Nova categoria</a>
+      <a href="{% url 'links:categories' %}" class="font-semibold">Categorias</a>
       <form method="post" action="{% url 'accounts:logout' %}" class="inline-block py-4 px-6 font-semibold bg-gray-500 hover:bg-rose-500 text-white rounded-xl ml-4">
           {% csrf_token %}
           <button type="submit">Sair</button>

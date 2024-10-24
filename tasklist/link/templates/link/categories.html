@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Categorias{% endblock %}
+
+{% block content %}
+    <h1 class="text-xl">Categorias</h1>
+    <a href="{% url 'links:create_category' %}" class="inline-block py-4 px-6 my-2 font-semibold bg-blue-500 hover:bg-blue-600 text-white rounded-xl">Nova categoria</a>
+
+    <div class="grid grid-cols-3 gap-3">
+        {% for category in categories %}
+            <div class="bg-gray-100 p-6 rounded-xl">
+                <h2 class="mb-4 text-xl">{{ category.name }}</h2>
+
+                <a href="{% url 'links:edit_category' category.id %}" class="text-cyan-700">Editar</a>
+                |
+                <a href="{% url 'links:delete_category' category.id %}" class="text-cyan-700" 
+                    onclick="return confirm('Tem certeza que deseja deletar? Todos os items dessa categoria também serão excluídos!')">
+                        Deletar
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
