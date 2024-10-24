@@ -14,7 +14,11 @@
                 <a href="#" class="text-cyan-700">Ver</a>
                 |
                 <a href="{% url 'links:edit_category' category.id %}" class="text-cyan-700">Editar</a>
-                
+                |
+                <a href="{% url 'links:delete_category' category.id %}" class="text-cyan-700" 
+                    onclick="return confirm('Tem certeza que deseja deletar? Todos os items dessa categoria também serão excluídos!')">
+                        Deletar
+                </a>
             </div>
         {% endfor %}
     </div>
