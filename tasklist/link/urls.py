@@ -9,4 +9,5 @@ urlpatterns = [
     path('create-link/', views.create_link, name='create_link'),
     path('links/', views.links, name='links'),
     path('categories/', views.categories, name='categories'),
+    path('edit-category/<int:pk>/edit/', views.edit_category, name='edit_category'),
 ]
