@@ -1,9 +1,9 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Criar Link{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-    <h1 class="text-xl">Criar Link</h1>
+    <h1 class="text-xl">{{ title }}</h1>
 
     <form method="post" action=".">
 
@@ -11,6 +11,6 @@
 
         {{ form.as_p }}
 
-        <button class="p-4 bg-blue-500 hover:bg-blue-600 text-white rounded-xl">Criar link</button>
+        <button class="p-4 bg-blue-500 hover:bg-blue-600 text-white rounded-xl">Concluir</button>
     </form>
 {% endblock %}
