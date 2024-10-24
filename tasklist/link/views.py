@@ -67,3 +67,10 @@ def edit_category(request, pk):
 
     title = 'Editar categoria'
     return render(request, 'link/create_category.html', {'form': form, 'title': title})
+
+@login_required
+def delete_category(request, pk):
+    category = get_object_or_404(Category, pk=pk, created_by=request.user)
+    category.delete()
+
+    return redirect('/links/categories/')
